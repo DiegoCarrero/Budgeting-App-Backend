@@ -8,35 +8,37 @@ transactions.get("/", (req, res) => {
 })
 
 // SHOW
-transactions.get("/:arrayIndex", (req, res) => {
-  if (transactionsArray[req.params.arrayIndex]) {
-    res.json(transactionsArray[req.params.arrayIndex]);
+transactions.get("/:index", (req, res) => {
+  if (transactionsArray[req.params.index]) {
+    res.json(transactionsArray[req.params.index]);
   } else {
     res.status(404).json({ error: "Not Found" });
   }
 });
 
 // CREATE
-transactions.post("/", validateURL, (req, res) => {
+transactions.post("/", (req, res) => {
   transactionsArray.push(req.body);
   res.json(transactionsArray[transactionsArray.length - 1]);
 });
 
 // DELETE
-transactions.delete("/:indexArray", (req, res) => {
-  const deletedBookmark = transactionsArray.splice(req.params.indexArray, 1);
+transactions.delete("/:index", (req, res) => {
+  const deletedBookmark = transactionsArray.splice(req.params.index, 1);
   res.status(200).json(deletedBookmark);
 });
 
 // UPDATE
-transactions.put("/:arrayIndex", validateURL, async (req, res) => {
-  if (transactionsArray[req.params.arrayIndex]) {
-    transactionsArray[req.params.arrayIndex] = req.body;
+transactions.put("/:index", async (req, res) => {
+
+  if (transactionsArray[req.params.index]) {
+    transactionsArray[req.params.index] = req.body;
     console.log("PUT route successful", req.body )
-    res.status(200).json(transactionsArray[req.params.arrayIndex]);
+    res.status(200).json(transactionsArray[req.params.index]);
   } else {
     res.status(404).json({ error: "Not Found" });
   }
+  
 });
 
 module.exports = transactions;
