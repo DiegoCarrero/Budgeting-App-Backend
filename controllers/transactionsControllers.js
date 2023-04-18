@@ -1,6 +1,6 @@
 const express = require("express");
 const transactions = express.Router();
-// const transactionsArray = require("../models/bookmark.js");
+const transactionsArray = require("../models/transactions.js");
 
 // Get, all the entries in the database
 transactions.get("/", (req, res) => {
