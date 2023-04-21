@@ -38,7 +38,7 @@ transactions.put("/:index", async (req, res) => {
   } else {
     res.status(404).json({ error: "Not Found" });
   }
-  
+
 });
 
 module.exports = transactions;
