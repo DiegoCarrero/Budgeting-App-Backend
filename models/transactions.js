@@ -3,7 +3,7 @@
 module.exports = [
     {
       id: 0,
-      transaction: 'Income',
+      transaction: 'Paycheck Deposit',
       amount: 3000,
       date: '04/01/23',
       from: 'Employer',
@@ -25,4 +25,29 @@ module.exports = [
         from: 'Cinemark Movie Theater',
         category: 'Entertainment'
     },
+    {
+        id: 3,
+        transaction: 'Uber Payment',
+        amount: 400,
+        date: '04/11/23',
+        from: 'Uber',
+        category: 'Income'
+    },
+    {
+        id: 4,
+        transaction: 'Sushi Dinner',
+        amount: 75,
+        date: '04/17/23',
+        from: 'Sakura Garden',
+        category: 'Restaurants'
+    },
+    {
+        id: 5,
+        transaction: 'Gas',
+        amount: 70,
+        date: '04/01/23',
+        from: 'Mobil',
+        category: 'Gas'
+    }
+    
   ];
