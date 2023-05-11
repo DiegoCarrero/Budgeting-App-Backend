@@ -8,9 +8,11 @@ transactions.get("/", (req, res) => {
 })
 
 // SHOW
-transactions.get("/:index", (req, res) => {
-  if (transactionsArray[req.params.index]) {
-    res.json(transactionsArray[req.params.index]);
+transactions.get("/:id", (req, res) => {
+  const { id } = req.params;
+  
+  if (transactionsArray[id]) {
+    res.json(transactionsArray[id]);
   } else {
     res.status(404).json({ error: "Not Found" });
   }

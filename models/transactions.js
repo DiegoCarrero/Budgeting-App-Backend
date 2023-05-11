@@ -1,6 +1,4 @@
-// id: number
-// item_name: string
-// amount
+
 
 module.exports = [
     {
