@@ -10,25 +10,25 @@ transactions.get("/", (req, res) => {
 // SHOW
 transactions.get("/:id", (req, res) => {
   const { id } = req.params;
-  
+
   if (transactionsArray[id]) {
     res.json(transactionsArray[id]);
   } else {
     res.status(404).json({ error: "Not Found" });
   }
-});
+})
 
 // CREATE
 transactions.post("/", (req, res) => {
   transactionsArray.push(req.body);
-  res.json(transactionsArray[transactionsArray.length - 1]);
-});
+  res.status(200).json(transactionsArray);
+})
 
 // DELETE
 transactions.delete("/:index", (req, res) => {
   const deletedBookmark = transactionsArray.splice(req.params.index, 1);
   res.status(200).json(deletedBookmark);
-});
+})
 
 // UPDATE
 transactions.put("/:index", async (req, res) => {
@@ -40,7 +40,6 @@ transactions.put("/:index", async (req, res) => {
   } else {
     res.status(404).json({ error: "Not Found" });
   }
-
-});
+})
 
 module.exports = transactions;
